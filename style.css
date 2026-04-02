@@ -1,0 +1,219 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(208, 226, 190); 
+    color: #010122;  
+    font-family: Comfortaa;
+    padding: 20px;
+}
+
+h2 {
+    margin: 30px 0 15px 0;
+    color: #010124;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 10px;
+    color: #010122;
+}
+
+/* БАЗОВЫЕ СТИЛИ ДЛЯ ВСЕХ FLEX-КОНТЕЙНЕРОВ */
+.flex-container {
+    display: flex;  /* включает flex-режим */
+    background-color: rgba(0, 0, 102, 0.1);
+    padding: 15px;
+    border: 1px solid #010122;
+    margin: 10px 0;
+}
+
+/* СТИЛИ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ */
+.box {
+    background-color: #010122;
+    color: rgb(208, 226, 190);
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box-small {
+    background-color: #010122;
+    color: rgb(208, 226, 190);
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* ============  БАЗОВЫЙ FLEX ============ */
+.basic-flex {
+    display: flex;
+}
+
+/* ============ FLEX-DIRECTION ============ */
+.direction-row {
+    display: flex;
+    flex-direction: row;  /* элементы идут горизонтально (по умолчанию) */
+}
+
+.direction-column {
+    display: flex;
+    flex-direction: column;  /* элементы идут вертикально */
+}
+
+/* ============ JUSTIFY-CONTENT ============ */
+.justify-center {
+    display: flex;
+    justify-content: center;  /* элементы по центру по горизонтали */
+}
+
+.justify-between {
+    display: flex;
+    justify-content: space-between;  /* первый слева, последний справа, остальные между ними */
+}
+
+/* ============  ALIGN-ITEMS ============ */
+.align-center {
+    display: flex;
+    align-items: center;  /* элементы по центру по вертикали */
+}
+
+.align-stretch {
+    display: flex;
+    align-items: stretch;  /* элементы растягиваются на всю высоту */
+}
+
+/* ============  FLEX-GROW, FLEX-SHRINK, FLEX-BASIS ============ */
+.grow-example {
+    display: flex;
+}
+
+.grow-1 {
+    flex-grow: 1;  /* может растягиваться, занимает 1 часть свободного места */
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.grow-2 {
+    flex-grow: 2;  /* растягивается в 2 раза больше, чем grow-1 */
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+
+.grow-0 {
+    flex-grow: 0;  /* не растягивается */
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+.shrink-example {
+    display: flex;
+}
+
+.shrink-0 {
+    flex-grow: 1;
+    flex-shrink: 0;  /* не сжимается при нехватке места */
+    flex-basis: 200px;
+}
+
+.shrink-1 {
+    flex-grow: 1;
+    flex-shrink: 1;  /* может сжиматься при нехватке места */
+    flex-basis: 200px;
+}
+
+.basis-example {
+    display: flex;
+}
+
+.basis-150 {
+    flex-basis: 150px;  /* базовая ширина 150px */
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+/* ============ FLEX-WRAP ============ */
+.flex-wrap-example {
+    display: flex;
+    flex-wrap: wrap;  /* разрешает перенос на новую строку */
+    gap: 10px;
+}
+
+.flex-wrap-example .box {
+    flex: 1 1 150px;  /* min-width 150px, может растягиваться */
+}
+
+/* ============ ORDER ============ */
+.order-example {
+    display: flex;
+}
+
+.order-0 {
+    order: 0;  /* отобразится первым (по умолчанию) */
+}
+
+.order-1 {
+    order: 1;  /* отобразится вторым */
+}
+
+.order-2 {
+    order: 2;  /* отобразится третьим */
+}
+
+.order-3 {
+    order: 3;  /* отобразится четвёртым */
+}
+
+/* ============ АДАПТИВНЫЙ МАКЕТ ============ */
+.adaptive-layout {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #010122;
+    margin: 10px 0;
+}
+
+.layout-header {
+    background-color: #010122;
+    color: rgb(208, 226, 190);
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.layout-body {
+    display: flex;
+    flex-direction: row;  /* на десктопе навигация и контент рядом */
+}
+
+.layout-nav {
+    background-color: rgba(0, 0, 102, 0.2);
+    padding: 20px;
+    width: 200px;
+    border-right: 1px solid #010122;
+}
+
+.layout-main {
+    background-color: rgba(0, 0, 102, 0.1);
+    padding: 20px;
+    flex: 1;  /* занимает всё оставшееся место */
+}
+
+/* АДАПТИВНОСТЬ: при ширине меньше 768px макет становится вертикальным */
+@media (max-width: 768px) {
+    .layout-body {
+        flex-direction: column;  /* навигация и контент друг под другом */
+    }
+    
+    .layout-nav {
+        width: 100%;  /* навигация на всю ширину */
+        border-right: none;
+        border-bottom: 1px solid #010122;
+    }
+}

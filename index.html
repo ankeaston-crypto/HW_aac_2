@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - полное руководство</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ==================== БАЗОВЫЙ FLEX-КОНТЕЙНЕР ==================== -->
+
+<h2>1. Базовый flex-контейнер</h2>
+<p>display: flex - превращает контейнер в flex-контейнер,
+    все прямые дочерние элементы становятся flex-элементами</p>
+<div class="flex-container basic-flex" title="Материнский контейнер">
+    <div class="box" title="Дочерний элемент">Элемент 1</div>
+    <div class="box" title="Дочерний элемент">Элемент 2</div>
+    <div class="box" title="Дочерний элемент">Элемент 3</div>
+</div>
+
+<!-- ==================== FLEX-DIRECTION ==================== -->
+
+<h2>2. flex-direction: row (горизонтально)</h2>
+<p>flex-direction задаёт направление главной оси:
+    row (по умолчанию) - горизонтально слева направо
+    </p>
+<div class="flex-container direction-row">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+</div>
+
+<h2>3. flex-direction: column (вертикально)</h2>
+<p>column - вертикально сверху вниз</p>
+<div class="flex-container direction-column">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+</div>
+
+<!-- ==================== JUSTIFY-CONTENT ==================== -->
+
+<h2>4. justify-content: center (выравнивание по центру)</h2>
+<p>justify-content - выравнивание по главной оси. тут center - по центру</p>
+<div class="flex-container justify-center">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+</div>
+
+<h2>5. justify-content: space-between (равномерное распределение)</h2>
+<p>space-between - первый слева, последний справа, остальные между ними</p>
+<div class="flex-container justify-between">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+</div>
+
+<!-- ====================  ALIGN-ITEMS ==================== -->
+<!-- Еще значения:   
+    flex-start - прижимает к верху
+    flex-end - прижимает к низу-->
+<h2>6. align-items: center (вертикальное выравнивание по центру)</h2>
+<p>align-items - выравнивание по поперечной оси :
+    center - по центру по вертикали</p>
+<div class="flex-container align-center" style="height: 150px;">
+    <div class="box-small">1</div>
+    <div class="box-small">2</div>
+    <div class="box-small">3</div>
+</div>
+
+<h2>7. align-items: stretch (растягивание на всю высоту)</h2>
+<p>stretch - растягивает элементы на всю высоту (значение по умолчанию)</p>
+<div class="flex-container align-stretch" style="height: 150px;">
+    <div class="box-small">1</div>
+    <div class="box-small">2</div>
+    <div class="box-small">3</div>
+</div>
+
+<!-- ====================  FLEX-GROW, FLEX-SHRINK, FLEX-BASIS ==================== -->
+
+<h2>8. flex-grow: разные значения</h2>
+<p>flex-grow: способность элемента увеличиваться при свободном месте.</p>
+<div class="flex-container grow-example">
+    <div class="box grow-1">flex-grow: 1 (растянется)</div>
+    <div class="box grow-2">flex-grow: 2 (растянется в 2 раза больше)</div>
+    <div class="box grow-0">flex-grow: 0 (не растянется)</div>
+</div>
+<p>Первый элемент растягивается, второй в 2 раза больше, третий не растягивается</p>
+
+<h2>9. flex-shrink: 0 (запрет сжатия)</h2>
+<p>flex-shrink: способность элемента уменьшаться при нехватке места.</p>
+<div class="flex-container shrink-example">
+    <div class="box shrink-0">flex-shrink: 0 (не сжимается)</div>
+    <div class="box shrink-1">flex-shrink: 1 (сжимается)</div>
+    <div class="box shrink-1">flex-shrink: 1 (сжимается)</div>
+</div>
+<p>Уменьши ширину окна - первый элемент не сжимается, остальные сжимаются</p>
+
+<h2>10. flex-basis: 150px (базовая ширина)</h2>
+<p> flex-basis: базовая ширина элмента </p>
+<div class="flex-container basis-example">
+    <div class="box basis-150">flex-basis: 150px</div>
+    <div class="box basis-150">flex-basis: 150px</div>
+    <div class="box basis-150">flex-basis: 150px</div>
+</div>
+<p>Каждый элемент имеет базовую ширину 150px</p>
+
+<!-- ====================  FLEX-WRAP ==================== -->
+
+<h2>11. flex-wrap: wrap (перенос на новую строку)</h2>
+<p>разрешает перенос элементов на новую строку,
+    когда они не помещаются в контейнер</p>
+<div class="flex-container flex-wrap-example">
+    <div class="box">Элемент 1</div>
+    <div class="box">Элемент 2</div>
+    <div class="box">Элемент 3</div>
+    <div class="box">Элемент 4</div>
+    <div class="box">Элемент 5</div>
+    <div class="box">Элемент 6</div>
+    <div class="box">Элемент 7</div>
+    <div class="box">Элемент 8</div>
+</div>
+<p>Если уменьшить ширину окна  элементы будут переноситься на новые строки</p>
+
+<!-- ====================  ПОРЯДОК ЭЛЕМЕНТОВ (ORDER) ==================== -->
+<!-- 
+    
+-->
+<h2>12. Order: изменение порядка элементов</h2>
+<p>меняет порядок отобреажения элементов.
+    по умолчанию все элементы имеют order: 0.
+    элементы с меньшим значением order отображаются раньше.
+    Полезно для перестановки блоков на мобильных устройствах.</p>
+<div class="flex-container order-example">
+        <div class="box order-3">order: 3 (покажется последним)</div>
+    <div class="box order-1">order: 1 (покажется вторым)</div>
+    <div class="box order-2">order: 2 (покажется третьим)</div>
+    <div class="box order-0">order: 0 (покажется первым)</div>
+</div>
+<p>Порядок отображения: order:0 → order:1 → order:2 → order:3</p>
+<p>Полезно, например, чтобы на мобильных экранах меню показывалось после основного контента</p>
+
+<!-- ==================== АДАПТИВНЫЙ МАКЕТ  ==================== -->
+<!--  На десктопе: заголовок сверху, навигация слева, контент справа? на мобильных: все блоки друг под другой-->
+<h2>13. Адаптивный макет с заголовком, навигацией и контентом</h2>
+<div class="adaptive-layout">
+    <header class="layout-header">ЗАГОЛОВОК</header>
+    <div class="layout-body">
+        <nav class="layout-nav">НАВИГАЦИЯ<br><br>Пункт 1<br>Пункт 2<br>Пункт 3</nav>
+        <main class="layout-main">ОСНОВНОЙ КОНТЕНТ<br><br>Здесь находится основное содержимое страницы. При уменьшении ширины окна навигация и контент становятся друг под другом.</main>
+    </div>
+</div>
+<p>При ширине меньше 768px макет превращается в вертикальную компоновку</p>
+
+</body>
+</html>
